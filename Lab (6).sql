@@ -1,5 +1,5 @@
-create database Lab6
-use Lab6
+create database DreamHome
+use DreamHome
 Go
 
 create table Branch (
@@ -38,8 +38,6 @@ INSERT into Staff (staffNo, fName, lName, position, sex, DOB, salary, branchNo) 
 ('NSA89', N'Muttayyab', N'Brand', N'HR', N'M', '2001-09-01 ', '18000', N'B005'),
 ('NSA90', N'Hashir', N'Brand', N'HR', N'M', '1999-07-01 ', '18000', N'B006'),
 ('NSA91', N'ali', N'Brand', N'HR', N'M', '2000-02-01 ', '15000', N'B007');
-INSERT into Staff (staffNo, fName, lName, position, sex, DOB, salary, branchNo) VALUES
-('NSA92', N'Mukhtiar', N'Zamin', 'Manager', N'F', '1970-09-01 ', '13000', N'B001');
 
 create table Client (clientNo varchar(20) NOT NULL PRIMARY KEY,
 fName varchar(50) NOT NULL, 
@@ -142,92 +140,12 @@ SELECT * FROM Branch, STAFF
 SELECT * FROM Branch, STAFF WHERE Branch.branchNo = Staff.branchNo;
 SELECT * FROM Branch, STAFF WHERE Branch.branchNo = N'B007'
 
-Select distinct(city) from	Branch --does not repeat any 
 
-Select city As MyCity from	Branch
+Update Branch set city='ABT' where branchNo='B007'
 
-Select
-staffNo as ID,
-fName asFirstName,
-lName as [Last	Name],
-position as Position,
-sex as Gender,
-DOB as [Dateof Birth],
-salary as Income 
-from Staff
+Delete from Viewing where clientNo='C1'
+
+Drop table Registration 
 
 
-Select (fName +' '+lName) as	[ Full Name],
-position as Position
-from Staff
-
-
-SELECT staffNo, fName, lName,position, salary FROM Staff WHERE salary >10000;
-SELECT * FROM Branch
-WHERE city ='NABT' OR city ='NISB'
-
-SELECT * FROM Branch
-WHERE city ='NISB' and street ='NH#79 I-10/2'
-
-----------------------------------------------------------------------------------------------------
-SELECT staffNo, fName, lName,	position, salary FROM Staff  --this and below statement are same
-WHERE salary BETWEEN 10000 AND	20000;
-
-SELECT staffNo, fName, lName,position, salary FROM Staff  --this and above statement are same
-WHERE salary >= 10000 AND salary	<=20000;
-
-----------------------------------------------------------------------------------------------------
-
-SELECT staffNo, fName, lName,	position FROM Staff   --this and below statement are same
-WHERE position IN ('Manager',
-	'Supervisor');
-
-SELECT staffNo, fName, lName,	position FROM Staff
-WHERE position='Supervisor' OR  position='HR';        --this and above statement are same
-
-----------------------------------------------------------------------------------------------------
-
-SELECT ownerNo,fName,lName,adress,telNo FROM PrivateOwner WHERE adress LIKE '%Musazai%';
-
-SELECT ownerNo,fName,lName,adress,telNo FROM PrivateOwner WHERE adress LIKE 'M__%';
-
-SELECT ownerNo,fName,lName,adress,telNo FROM PrivateOwner WHERE adress LIKE 'M________';   --underscore for space as well
-
-SELECT clientNo, viewDate	FROM Viewing
-	WHERE propertyNo = 'P006' or comment IS NULL;
-
-Select	* from	Branch,Staff	Where Branch.branchNo =Staff.branchNo
-
-SELECT LOWER(city) AS lowercase_city FROM Branch;
-SELECT UPPER(fname) AS highercase_fname FROM Staff;
-
-
-Select distinct(postcode) from	Branch
-Select distinct(fName) from	Staff
-
-
-Select
-staffNo as ID,
-fName asFirstName,
-lName as [Last	Name],
-position as Position,
-sex as Gender,
-DOB as [Dateof Birth],
-salary as Income 
-from Staff;
-
-Select
-clientNo as Client_ID,
-fName as firstName,
-lName as lastName,
-telNo as telephone_NUmber,
-prefType as Preference,
-maxRent as maximum_rent
-from Client
-
-SELECT staffNo, fName, lName,position, salary FROM Staff  --this and above statement are same
-WHERE salary >= 10000 ;
-
-SELECT staffNo, fName, lName,	position FROM Staff   --this and below statement are same
-WHERE position IN ('Manager',
-	'Supervisor');
+Alter table Viewing Add commentTwo varChar(20)

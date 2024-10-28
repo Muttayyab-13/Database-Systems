@@ -1,41 +1,41 @@
-create database [Lab One];
+create database [lab four]
 
-
-
-create table Students(std_id int,fName varchar(15),lName nvarchar(10),CGPA int);
-
-use [first Lab]
+use [lab four]
 Go
 
-Insert into	Students(std_id,fName,lName,CGPA) Values(1,'Amna','Ali',3)
-Insert into	Students(std_id,fName,lName,CGPA) Values(2,'Hashir','Chaudhary',4)
-Insert into	Students(std_id,fName,lName,CGPA) Values(3,'Abdul','Momin',2)
-Insert into	Students(std_id,fName,lName,CGPA) Values(4,'Muneeb','Khan',3)
+create table Employee(Employee_Number int, Employee_Name varChar(20), Job_type varChar(20), Salary decimal(8,4),Datee date )
 
-Select * From Students where CGPA>2
+alter table Employee alter column Salary numeric(8,2)
 
-create table Employee(E_id int not null,eFname varchar(15),eLName nvarchar(10));
-
-insert into Employee(E_id,eFname,eLName)values(01,'Momina','ahmed')
-insert into Employee(E_id,eFname,eLName)values(01,'Amina','momin')
-insert into Employee(E_id,eFname,eLName)values(01,'hira','bilal')
-insert into Employee(eFname,eLName)values('ahmed','ali') 
+insert into Employee(Employee_Number, Employee_Name, Job_type, Salary,Datee )
+Values(1,'Hashir','Software Engineer',10000.0,'2/18/2024'),
+(1,'Hashir','Software Engineer',11000.0,'2/18/2024'),
+(2,'Momin','Software Engineer',12000.0,'4/19/2024'),
+(3,'Muneeb','Software Engineer',13000.0,'8/28/2024'),
+(4,'Kashif','Software Engineer',14000.0,'12/31/2024'),
+(5,'Momin','Software Engineer',15000.0,'11/7/2024'),
+(6,'Muhammad','Software Engineer',16000.0,'1/9/2024')
 
 select * from Employee
 
+update Employee set Job_type='Sofware Engineer' 
 
-create table Transcript(Transcript_ID int PRIMARY KEY, S_ID int NOT NULL, Course_Code varchar(10) NOT NULL,Course_Name varchar(50) NOT NULL,Grade char(2),Semester varchar(10));
+update Employee set Job_type='Doctor' where Employee_Number=3
 
-insert into Transcript(Transcript_ID, S_ID, Course_Code, Course_Name, Grade, Semester) 
-VALUES (1, 1, 'CS101', 'Computer Science Basics', 'B', 'Fall2023');
+update Employee set Job_type='Manager' where Employee_Number=6
 
-insert into Transcript(Transcript_ID, S_ID, Course_Code, Course_Name, Grade, Semester) 
-VALUES (2, 2, 'CS102', 'Object-Oriented Programming', 'A', 'Fall2023');
+create table Department(Department_No int , Department_Name varChar(20), BlockName char(2) )
 
-insert into Transcript(Transcript_ID, S_ID, Course_Code, Course_Name, Grade, Semester) 
-VALUES (3, 3, 'MTH101', 'Calculus I', 'B+', 'Fall2023');
+insert into Department(Department_No, Department_Name, BlockName )
+Values(001,'Computer Science','Z '),
+(002,'Business Law',' S'),
+(003,'Intro to Sociology','C'),
+(004,'Intro to Pschcology','A'),
+(005,'Intro to Law','B'),
+(006,'Technology','E'),
+(007,'Communication','F')
 
-insert into Transcript(Transcript_ID, S_ID, Course_Code, Course_Name, Grade, Semester) 
-VALUES (4, 4, 'PHY101', 'Physics I', 'A', 'Fall2023');
+Delete from Department where Department_No=001
+Delete from Department where Department_No=005
 
-Select * from Transcript
+select * from Department
