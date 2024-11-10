@@ -38,7 +38,7 @@ INSERT INTO Staff (staffNo, fName, lName, position, DOB, salary, branchNo) VALUE
 (3, 'Charlie', 'Williams', 'Manager', '1985-08-30', 60000.00, 'B002'),
 (4, 'David', 'Jones', 'Sales', '1992-11-12', 25000.00, 'B003'),
 (5, 'Alice', 'Brown', 'Assistant', '1988-03-04', 28000.00, 'B002'),
-(6, NULL , 'Davis', 'Sales', '1983-06-29', 32000.00, 'B003');
+(6, 'abc' , 'Davis', 'Sales', '1983-06-29', 32000.00, 'B003');
 
 -- Insert sample data into PropertyForRent
 INSERT INTO PropertyForRent (propertyNo, type, rooms, rent) VALUES
@@ -107,3 +107,18 @@ WHERE salary > ANY (SELECT salary FROM Staff WHERE branchNo = 'B001');
 SELECT * 
 FROM STAFF 
 WHERE SALARY < ALL(SELECT SALARY FROM STAFF WHERE POSITION = 'MANAGER')
+
+
+
+Select salary as SALARY from Staff 
+
+Select salary as SALARY from Staff where salary>30000
+
+
+Select AVG(salary) as SALARY from Staff 
+
+Select AVG(salary) as SALARY from Staff where salary>30000
+
+Select Min(salary) as SALARY from Staff 
+
+

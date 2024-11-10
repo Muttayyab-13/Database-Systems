@@ -149,3 +149,7 @@ Drop table Registration
 
 
 Alter table Viewing Add commentTwo varChar(20)
+
+
+
+Select
